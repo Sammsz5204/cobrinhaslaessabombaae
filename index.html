@@ -135,30 +135,28 @@ function loop() {
   });
 }
 
-// listen to keyboard events to move the snake
+<script>
 document.addEventListener('keydown', function(e) {
-  // prevent snake from backtracking on itself by checking that it's
-  // not already moving on the same axis (pressing left while moving
-  // left won't do anything, and pressing right while moving left
-  // shouldn't let you collide with your own body)
+  // Prevent snake from backtracking on itself by checking that it's
+  // not already moving on the same axis
 
-  // left arrow key
-  if (e.which === 37 && snake.dx === 0) {
+  // Left arrow key or 'A' key
+  if ((e.which === 37 || e.which === 65) && snake.dx === 0) { // 37 -> Left arrow, 65 -> 'A'
     snake.dx = -grid;
     snake.dy = 0;
   }
-  // up arrow key
-  else if (e.which === 38 && snake.dy === 0) {
+  // Up arrow key or 'W' key
+  else if ((e.which === 38 || e.which === 87) && snake.dy === 0) { // 38 -> Up arrow, 87 -> 'W'
     snake.dy = -grid;
     snake.dx = 0;
   }
-  // right arrow key
-  else if (e.which === 39 && snake.dx === 0) {
+  // Right arrow key or 'D' key
+  else if ((e.which === 39 || e.which === 68) && snake.dx === 0) { // 39 -> Right arrow, 68 -> 'D'
     snake.dx = grid;
     snake.dy = 0;
   }
-  // down arrow key
-  else if (e.which === 40 && snake.dy === 0) {
+  // Down arrow key or 'S' key
+  else if ((e.which === 40 || e.which === 83) && snake.dy === 0) { // 40 -> Down arrow, 83 -> 'S'
     snake.dy = grid;
     snake.dx = 0;
   }
